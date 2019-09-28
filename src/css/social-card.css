@@ -16,6 +16,11 @@
   padding: 1rem;
   flex-direction: column;
   flex: 1;
+  transition: 200ms;
+}
+
+.card:hover {
+  transform: scale(1.03);
 }
 
 .user-time {
@@ -69,9 +74,12 @@ span.hearth {
 
 .description {
   text-align: left;
+  color: #333;
+  padding-top: 0.5rem;
 }
 
 .tags {
   color: #3e498a;
+  margin: 5px 0;
   font-size: 0.8rem;
 }
