@@ -9,10 +9,13 @@
 .card {
   max-width: 300px;
   min-height: 300px;
-  border: 1px solid black;
+  max-height: 500px;
+  /* border: 1px solid #e2e2e2; */
+  box-shadow: 3px 3px 10px #e2e2e2;
   margin: 1rem;
   padding: 1rem;
   flex-direction: column;
+  flex: 1;
 }
 
 .user-time {
@@ -22,20 +25,53 @@
   margin-bottom: 1rem;
 }
 
+.user {
+  color: #53576e;
+  font-weight: bold;
+}
+
+.time {
+  color: #666;
+  font-size: 0.8rem;
+}
+
 .image {
   max-width: 300px;
   height: 200px;
-  background: url(https://images.pexels.com/photos/2552130/pexels-photo-2552130.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  overflow: hidden;
+  display: flex;
+  /* justify-content: center; */
+}
+
+.image img {
+  width: 100%;
+  align-self: center;
 }
 
 .likes {
   text-align: left;
   margin-top: 0.5rem;
+  color: #3e498a;
+  font-size: 0.9rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.likes > * {
+  padding-right: 0.2rem;
+}
+
+span.hearth {
+  color: #e61d1d;
+  font-size: 1.5rem;
 }
 
 .description {
   text-align: left;
+}
+
+.tags {
+  color: #3e498a;
+  font-size: 0.8rem;
 }

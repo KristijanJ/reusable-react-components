@@ -2,24 +2,34 @@ import React, { Component } from "react";
 import "../css/social-card.css";
 
 export default class SocialCard extends Component {
+  likes = () => {
+    if (this.props.likes) {
+      return (
+        <div className="likes">
+          <span className="hearth">❤</span>
+          <span>{this.props.likes}</span>
+          <span>likes</span>
+        </div>
+      );
+    } else {
+      return "";
+    }
+  };
+
   render() {
     return (
-      <div className="card-outer center-text">
+      <div className="card-outer center-text flex">
         <div className="card flex">
           <div className="user-time">
-            <div className="user">Kristijan</div>
-            <div className="time">3 min</div>
+            <div className="user">{this.props.name}</div>
+            <div className="time">{this.props.time}</div>
           </div>
-          <div className="image"></div>
-          <div className="likes">❤ 35k Likes</div>
-          <div className="description">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore,
-              ipsam! Facilis exercitationem architecto possimus quas magni
-              repellendus consequuntur praesentium quis.
-            </p>
+          <div className="image">
+            <img src={this.props.image} alt="" />
           </div>
-          <div className="links"></div>
+          {this.likes()}
+          {this.props.description}
+          <div className="links">{this.props.links}</div>
         </div>
       </div>
     );
