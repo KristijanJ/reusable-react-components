@@ -111,11 +111,12 @@ export default class SocialCard extends Component {
   };
 
   render() {
-    if (this.props.type === "small") {
+    console.log(this.props.tags);
+    if (this.props.view === "Small") {
       return (
         <div className="card card-s">
           <div className="top top-s">
-            <div className="user-s">{this.props.user}</div>
+            <div className="user user-s">{this.props.user}</div>
             <div className="time">{this.time()}</div>
           </div>
           <div className="image image-s">
@@ -126,11 +127,11 @@ export default class SocialCard extends Component {
         </div>
       );
     }
-    if (this.props.type === "medium") {
+    if (this.props.view === "Medium") {
       return (
         <div className="card card-m">
           <div className="top top-m">
-            <div className="user-m">{this.props.user}</div>
+            <div className="user user-m">{this.props.user}</div>
             <div className="time">{this.time()}</div>
           </div>
           <div className="image image-m">
@@ -138,15 +139,19 @@ export default class SocialCard extends Component {
           </div>
           <div className="likes likes-m">{this.likes()}</div>
           <div className="desc">{this.props.desc}</div>
-          <div className="tags">{this.props.tags}</div>
+          <div className="tags">
+            {this.props.tags.map(tag => {
+              return <span>{tag} </span>;
+            })}
+          </div>
         </div>
       );
     }
-    if (this.props.type === "large") {
+    if (this.props.view === "Large") {
       return (
         <div className="card card-l">
           <div className="top top-l">
-            <div className="user-l">{this.props.user}</div>
+            <div className="user user-l">{this.props.user}</div>
             <div className="time">{this.time()}</div>
           </div>
           <div className="image image-l">
@@ -154,7 +159,11 @@ export default class SocialCard extends Component {
           </div>
           <div className="likes likes-l">{this.likes()}</div>
           <div className="desc">{this.props.desc}</div>
-          <div className="tags">{this.props.tags}</div>
+          <div className="tags">
+            {this.props.tags.map(tag => {
+              return <span>{tag} </span>;
+            })}
+          </div>
         </div>
       );
     }

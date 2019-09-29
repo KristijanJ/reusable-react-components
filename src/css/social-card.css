@@ -59,20 +59,17 @@
   margin-bottom: 0.5rem;
 }
 
+.user {
+  color: #3e498a;
+  font-weight: bold;
+}
+
 .user-s {
-  color: #53576e;
   font-size: 0.8rem;
 }
 
 .user-l {
   font-size: 1.2rem;
-}
-
-.user-m,
-.user-l,
-.user-s {
-  color: #53576e;
-  font-weight: bold;
 }
 
 .time {

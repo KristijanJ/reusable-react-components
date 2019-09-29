@@ -1,0 +1,45 @@
+.menu {
+  flex-basis: 300px;
+  box-shadow: 0px 3px 3px #e2e2e2;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.menu h1 {
+  text-align: center;
+}
+
+.change-view {
+  border: 1px solid #e2e2e2;
+  padding: 1rem;
+}
+
+.change-view h3 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons p {
+  padding: 0.7rem 0rem;
+  margin: 0 1rem;
+  border-bottom: 1px solid #e2e2e2;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+}
+
+.buttons p:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.buttons .active-view {
+  border-bottom: 2px solid #3e498a;
+}
