@@ -3,7 +3,31 @@ import "../css/social-card.css";
 
 export default class SocialCard extends Component {
   likes = () => {
-    if (this.props.likes) {
+    if (this.props.likes >= 10000000) {
+      return (
+        <div className="likes">
+          <span className="hearth">❤</span>
+          <span>{Math.round(this.props.likes / 1000000)}M</span>
+          <span>likes</span>
+        </div>
+      );
+    } else if (this.props.likes > 999999) {
+      return (
+        <div className="likes">
+          <span className="hearth">❤</span>
+          <span>{(this.props.likes / 1000000).toFixed(2)}M</span>
+          <span>likes</span>
+        </div>
+      );
+    } else if (this.props.likes > 999) {
+      return (
+        <div className="likes">
+          <span className="hearth">❤</span>
+          <span>{Math.round(this.props.likes / 1000)}K</span>
+          <span>likes</span>
+        </div>
+      );
+    } else {
       return (
         <div className="likes">
           <span className="hearth">❤</span>
@@ -11,58 +35,58 @@ export default class SocialCard extends Component {
           <span>likes</span>
         </div>
       );
-    } else {
-      return "";
     }
   };
 
   time = () => {
-    let cardTime = new Date(this.props.time);
-    let cardMonth = cardTime.getMonth() + 1;
-    let cardDay = cardTime.getDate();
-    let cardYear = cardTime.getFullYear();
-    let cardHours = cardTime.getHours();
-    let cardMinutes = cardTime.getMinutes();
-    let cardSeconds = cardTime.getSeconds();
+    const cardTime = new Date(this.props.time);
+    const cardTimeDetails = {
+      month: cardTime.getMonth() + 1,
+      day: cardTime.getDate(),
+      year: cardTime.getFullYear(),
+      hours: cardTime.getHours(),
+      min: cardTime.getMinutes(),
+      sec: cardTime.getSeconds()
+    };
 
-    console.log(cardMonth + "/" + cardDay + "/" + cardYear);
-
-    let currentTime = new Date();
-    let currentMonth = currentTime.getMonth() + 1;
-    let currentDay = currentTime.getDate();
-    let currentYear = currentTime.getFullYear();
-    let currentHours = currentTime.getHours();
-    let currentMinutes = currentTime.getMinutes();
-    let currentSeconds = currentTime.getSeconds();
-
-    console.log(currentMonth + "/" + currentDay + "/" + currentYear);
+    const currentTime = new Date();
+    const currentTimeDetails = {
+      month: currentTime.getMonth() + 1,
+      day: currentTime.getDate(),
+      year: currentTime.getFullYear(),
+      hours: currentTime.getHours(),
+      min: currentTime.getMinutes(),
+      sec: currentTime.getSeconds()
+    };
 
     if (
-      currentYear === cardYear &&
-      currentMonth === cardMonth &&
-      currentDay === cardDay
+      currentTimeDetails.year === cardTimeDetails.year &&
+      currentTimeDetails.month === cardTimeDetails.month &&
+      currentTimeDetails.day === cardTimeDetails.day
     ) {
       if (
-        currentHours * 60 + currentMinutes - (cardHours * 60 + cardMinutes) <
+        currentTimeDetails.hours * 60 +
+          currentTimeDetails.min -
+          (cardTimeDetails.hours * 60 + cardTimeDetails.min) <
         60
       ) {
         if (
-          currentMinutes * 60 +
-            currentSeconds -
-            (cardMinutes * 60 + cardSeconds) <
+          currentTimeDetails.min * 60 +
+            currentTimeDetails.sec -
+            (cardTimeDetails.min * 60 + cardTimeDetails.sec) <
           60
         ) {
           return (
-            currentMinutes * 60 +
-            currentSeconds -
-            (cardMinutes * 60 + cardSeconds) +
+            currentTimeDetails.min * 60 +
+            currentTimeDetails.sec -
+            (cardTimeDetails.min * 60 + cardTimeDetails.sec) +
             " sec"
           );
         }
         return (
-          currentHours * 60 +
-          currentMinutes -
-          (cardHours * 60 + cardMinutes) +
+          currentTimeDetails.hours * 60 +
+          currentTimeDetails.min -
+          (cardTimeDetails.hours * 60 + cardTimeDetails.min) +
           " min"
         );
       }
@@ -70,33 +94,69 @@ export default class SocialCard extends Component {
     }
 
     if (
-      currentYear === cardYear &&
-      currentMonth === cardMonth &&
-      currentDay === cardDay + 1
+      currentTimeDetails.year === cardTimeDetails.year &&
+      currentTimeDetails.month === cardTimeDetails.month &&
+      currentTimeDetails.day === cardTimeDetails.day + 1
     ) {
       return "Yesterday";
     }
 
-    return cardMonth + "/" + cardDay + "/" + cardYear;
+    return (
+      cardTimeDetails.month +
+      "/" +
+      cardTimeDetails.day +
+      "/" +
+      cardTimeDetails.year
+    );
   };
 
   render() {
-    return (
-      <div className="card-outer flex">
-        <div className="card flex">
-          <div className="user-time">
-            <div className="user">{this.props.name}</div>
+    if (this.props.type === "small") {
+      return (
+        <div className="card card-s">
+          <div className="top top-s">
+            <div className="user-s">{this.props.user}</div>
             <div className="time">{this.time()}</div>
           </div>
-          <div className="image">
-            <img src={this.props.image} alt="" />
+          <div className="image image-s">
+            <img src={this.props.image} alt={this.props.user} />
           </div>
-          {this.likes()}
-          <div className="description">{this.props.description}</div>
-          <p className="tags">{this.props.tags}</p>
-          <div className="links">{this.props.links}</div>
+          <div className="likes likes-s">{this.likes()}</div>
+          <div className="desc desc-s">{this.props.desc}</div>
         </div>
-      </div>
-    );
+      );
+    }
+    if (this.props.type === "medium") {
+      return (
+        <div className="card card-m">
+          <div className="top top-m">
+            <div className="user-m">{this.props.user}</div>
+            <div className="time">{this.time()}</div>
+          </div>
+          <div className="image image-m">
+            <img src={this.props.image} alt={this.props.user} />
+          </div>
+          <div className="likes likes-m">{this.likes()}</div>
+          <div className="desc">{this.props.desc}</div>
+          <div className="tags">{this.props.tags}</div>
+        </div>
+      );
+    }
+    if (this.props.type === "large") {
+      return (
+        <div className="card card-l">
+          <div className="top top-l">
+            <div className="user-l">{this.props.user}</div>
+            <div className="time">{this.time()}</div>
+          </div>
+          <div className="image image-l">
+            <img src={this.props.image} alt={this.props.user} />
+          </div>
+          <div className="likes likes-l">{this.likes()}</div>
+          <div className="desc">{this.props.desc}</div>
+          <div className="tags">{this.props.tags}</div>
+        </div>
+      );
+    }
   }
 }

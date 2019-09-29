@@ -1,9 +1,8 @@
-.App {
-  margin: auto;
-  padding: 0;
-  max-width: 1200px;
-  box-sizing: border-box;
+.socialUsers {
   display: flex;
-  /* justify-content: center; */
   flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
 }

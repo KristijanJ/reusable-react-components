@@ -6,18 +6,21 @@ import { socialUsers } from "./helpers";
 function App() {
   return (
     <div className="App">
-      {socialUsers.map(socialUser => {
-        return (
-          <SocialCard
-            name={socialUser.name}
-            time={socialUser.time}
-            image={socialUser.image}
-            likes={socialUser.likes}
-            description={socialUser.description}
-            tags={socialUser.tags}
-          />
-        );
-      })}
+      <div className="socialUsers">
+        {socialUsers.map(socialUser => {
+          return (
+            <SocialCard
+              user={socialUser.user}
+              time={socialUser.time}
+              image={socialUser.image}
+              likes={socialUser.likes}
+              desc={socialUser.description}
+              tags={socialUser.tags}
+              type={socialUser.type}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

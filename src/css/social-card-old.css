@@ -1,0 +1,102 @@
+.center-text {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.card {
+  /* border: 1px solid #e2e2e2; */
+  box-shadow: 3px 3px 10px #e2e2e2;
+  margin: 1rem;
+  padding: 1rem;
+  flex-direction: column;
+  flex: 1;
+  transition: 200ms;
+}
+
+.medium {
+  width: 350px;
+  min-height: 300px;
+  max-height: 500px;
+}
+
+.large {
+  width: 50%;
+  min-height: 500px;
+  max-height: 600px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.user-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user {
+  color: #53576e;
+  font-weight: bold;
+}
+
+.time {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.image-medium {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+}
+
+.image-large {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+}
+
+.image-medium img,
+.image-large img,
+.image-small img {
+  width: 100%;
+  align-self: center;
+}
+
+.likes {
+  text-align: left;
+  margin-top: 0.5rem;
+  color: #3e498a;
+  font-size: 0.9rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.likes > * {
+  padding-right: 0.2rem;
+}
+
+span.hearth {
+  color: #e61d1d;
+  font-size: 1.5rem;
+}
+
+.description {
+  text-align: left;
+  color: #333;
+  padding-top: 0.5rem;
+}
+
+.tags {
+  color: #3e498a;
+  margin: 5px 0;
+  font-size: 0.8rem;
+}

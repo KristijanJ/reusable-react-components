@@ -1,36 +1,76 @@
-.center-text {
-  text-align: center;
-}
-
-.flex {
-  display: flex;
-}
-
 .card {
-  max-width: 300px;
-  min-height: 300px;
-  max-height: 500px;
-  /* border: 1px solid #e2e2e2; */
+  margin: 2rem;
   box-shadow: 3px 3px 10px #e2e2e2;
-  margin: 1rem;
   padding: 1rem;
-  flex-direction: column;
-  flex: 1;
-  transition: 200ms;
 }
 
-.card:hover {
-  transform: scale(1.03);
+.card-s {
+  width: 200px;
+  min-height: 250px;
+  max-height: 300px;
+  padding: 0.7rem;
 }
 
-.user-time {
+.card-m {
+  width: 300px;
+  max-height: 450px;
+  min-height: 380px;
+}
+
+.card-l {
+  width: 500px;
+  max-height: 650px;
+  min-height: 550px;
+}
+
+.image {
+  display: flex;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  align-self: center;
+}
+
+.image-s {
+  height: 130px;
+}
+
+.image-m {
+  height: 200px;
+}
+
+.image-l {
+  height: 400px;
+}
+
+.top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
 }
 
-.user {
+.top-s {
+  flex-direction: column;
+}
+
+.top-l {
+  margin-bottom: 0.5rem;
+}
+
+.user-s {
+  color: #53576e;
+  font-size: 0.8rem;
+}
+
+.user-l {
+  font-size: 1.2rem;
+}
+
+.user-m,
+.user-l,
+.user-s {
   color: #53576e;
   font-weight: bold;
 }
@@ -40,27 +80,25 @@
   font-size: 0.8rem;
 }
 
-.image {
-  max-width: 300px;
-  height: 200px;
-  overflow: hidden;
-  display: flex;
-  /* justify-content: center; */
-}
-
-.image img {
-  width: 100%;
-  align-self: center;
-}
-
 .likes {
   text-align: left;
-  margin-top: 0.5rem;
   color: #3e498a;
-  font-size: 0.9rem;
   display: flex;
   /* justify-content: center; */
   align-items: center;
+}
+
+.likes-s {
+  font-size: 0.8rem;
+}
+
+.likes-m {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.likes-l {
+  margin-top: 0.5rem;
 }
 
 .likes > * {
@@ -72,10 +110,15 @@ span.hearth {
   font-size: 1.5rem;
 }
 
-.description {
+.desc {
   text-align: left;
   color: #333;
   padding-top: 0.5rem;
+}
+
+.desc-s {
+  font-size: 0.8rem;
+  padding-top: 0.2rem;
 }
 
 .tags {
