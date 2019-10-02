@@ -111,7 +111,6 @@ export default class SocialCard extends Component {
   };
 
   render() {
-    console.log(this.props.tags);
     if (this.props.view === "Small") {
       return (
         <div className="card card-s">
@@ -141,7 +140,7 @@ export default class SocialCard extends Component {
           <div className="desc">{this.props.desc}</div>
           <div className="tags">
             {this.props.tags.map(tag => {
-              return <span>{tag} </span>;
+              return <span key={this.props.user + tag}>{tag} </span>;
             })}
           </div>
         </div>
@@ -161,7 +160,7 @@ export default class SocialCard extends Component {
           <div className="desc">{this.props.desc}</div>
           <div className="tags">
             {this.props.tags.map(tag => {
-              return <span>{tag} </span>;
+              return <span key={this.props.user + tag}>{tag} </span>;
             })}
           </div>
         </div>

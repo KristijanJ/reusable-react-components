@@ -5,7 +5,10 @@ import { socialUsers } from "./helpers";
 import "./App.css";
 
 export default class App extends Component {
-  state = { view: "Medium" };
+  state = {
+    view: "Medium",
+    socialUsers
+  };
 
   changeView = e => {
     const button = e.target;
@@ -18,11 +21,15 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Menu changeView={this.changeView} />
+        <Menu
+          changeView={this.changeView}
+          socialUsers={this.state.socialUsers}
+        />
         <div className="socialUsers">
-          {socialUsers.map(socialUser => {
+          {this.state.socialUsers.map(socialUser => {
             return (
               <SocialCard
+                key={socialUser.user}
                 user={socialUser.user}
                 time={socialUser.time}
                 image={socialUser.image}

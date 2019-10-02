@@ -16,6 +16,11 @@ export default class Menu extends Component {
             <p onClick={this.props.changeView}>Large</p>
           </div>
         </div>
+        <div className="users">
+          {Object.keys(this.props.socialUsers).map(key => {
+            return <p>{this.props.socialUsers[key].user}</p>;
+          })}
+        </div>
       </div>
     );
   }
